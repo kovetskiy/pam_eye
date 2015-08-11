@@ -19,7 +19,7 @@ cd $SRCDIR
 make
 cd -
 
-install -D "pam_eye.so" "$PKGDIR/usr/lib/security/pam_eye.so"
+install -D "$SRCDIR/pam_eye.so" "$PKGDIR/usr/lib/security/pam_eye.so"
 
 dpkg -b $PKGDIR pam_eye-${VERSION}_amd64.deb
 
