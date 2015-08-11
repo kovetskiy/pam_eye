@@ -1,0 +1,8 @@
+Package: pam_eye
+Version: $VERSION$
+Architecture: amd64
+Section: unknown
+Priority: extra
+Maintainer: Egor Kovetskiy <e.kovetskiy@office.ngs.ru>
+Homepage: https://github.com/kovetskiy/pam_eye
+Description: pam_eye
