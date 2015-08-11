@@ -6,7 +6,7 @@ pkgdesc="A PAM module that send hostname to gateway host"
 arch=('i686' 'x86_64')
 url="http://github.com/kovetskiy/pam_eye"
 license=('GPL')
-depends=('util-linux', 'curl')
+depends=('util-linux' 'curl')
 optdepends=()
 backup=()
 options=()
@@ -14,15 +14,15 @@ source=("git://github.com/kovetskiy/pam_eye.git")
 md5sums=('SKIP')
 
 pkgver() {
-    cd "${pkgname}"
+    cd "$pkgname"
     echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 build() {
-    cd "$srcdir"
+    cd "$pkgname"
     make
 }
 
 package() {
-    cp "$srcdir/pam_eye.so" "$pkgdir/usr/lib/security/pam_eye.so"
+    install -D "$pkgname/pam_eye.so" "$pkgdir/usr/lib/security/pam_eye.so"
 }
