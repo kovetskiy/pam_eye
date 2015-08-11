@@ -1,4 +1,4 @@
-Package: pam_eye
+Package: pam-eye
 Version: $VERSION$
 Architecture: amd64
 Section: unknown
