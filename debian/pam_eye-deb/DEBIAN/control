@@ -3,7 +3,7 @@ Version: $VERSION$
 Architecture: amd64
 Section: unknown
 Priority: extra
-Depends: libcurl4-openssl-dev
+Depends: libcurl4-openssl-dev, libpam0g-dev
 Maintainer: Egor Kovetskiy <e.kovetskiy@office.ngs.ru>
 Homepage: https://github.com/kovetskiy/pam_eye
 Description: pam_eye
