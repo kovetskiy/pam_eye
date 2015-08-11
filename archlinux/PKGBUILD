@@ -1,6 +1,6 @@
 # Maintainer: Egor Kovetskiy <e.kovetskiy@office.ngs.ru>
 pkgname=pam_eye
-pkgver=2.15
+pkgver=2.6e89c90
 pkgrel=1
 pkgdesc="A PAM module that send hostname to gateway host"
 arch=('i686' 'x86_64')
