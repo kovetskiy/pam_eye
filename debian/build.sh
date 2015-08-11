@@ -15,7 +15,9 @@ sed -i 's/\$VERSION\$/'$VERSION'/g' $PKGDIR/DEBIAN/control
 
 git clone https://github.com/kovetskiy/pam_eye $SRCDIR
 
-cp -f $SRCDIR/pam_eye $PKGDIR/usr/bin/
+cd $SRCDIR
+make
+install -D "pam_eye.so" "$PKGDIR/usr/lib/security/pam_eye.so"
 
 dpkg -b $PKGDIR pam_eye-${VERSION}_amd64.deb
 
