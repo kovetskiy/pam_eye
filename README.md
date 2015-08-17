@@ -17,7 +17,7 @@ auth    required    pam_eye.so    DOMAIN
 
 Replace placeholder `DOMAIN` with your pam_eye gateway host.
 
-## Arch Linux
+## Debian (tested on Ubuntu 10.04 LTS)
 
 - Install package:
 ```
