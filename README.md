@@ -1,3 +1,12 @@
+# pam_eye
+
+**pam_eye** will log successfully opened sessions by sending simple
+GET-requests on the specified server. Information sent will contain no private
+information, only hostname of the machine where session has been opened.
+
+**pam_eye** will not block authentication in any way, even if server is
+unreachable.
+
 # Installation
 
 ## Arch Linux
@@ -12,10 +21,15 @@ $ makepkg -c
 
 - Add following lines to `/etc/pam.d/system-auth`:
 ```
-auth    required    pam_eye.so    DOMAIN
+auth    optional    pam_eye.so    URL [TIMEOUT_MS [nodebug]]
 ```
 
-Replace placeholder `DOMAIN` with your pam_eye gateway host.
+Replace placeholder `URL` with your **pam_eye** gateway url (without http://).
+
+`TIMEOUT_MS` is the maximum amount of milliseconds which **pam_eye** could take.
+By default it's 200 milliseconds.
+
+`nodebug` option can be used to prevent logging to syslog about faulty servers.
 
 ## Debian (tested on Ubuntu 10.04 LTS)
 
@@ -30,7 +44,36 @@ $ ./build.sh 1.0
 
 - Add following lines to `/etc/pam.d/common-auth`:
 ```
-auth    required    pam_eye.so    DOMAIN
+auth    optional    pam_eye.so    URL [TIMEOUT [nodebug]]
 ```
 
-Replace placeholder `DOMAIN` with your pam_eye gateway host.
+Replace placeholder `URL` with your **pam_eye** gateway url (without http://).
+
+`TIMEOUT_MS` is the maximum amount of milliseconds which **pam_eye** could take.
+By default it's 200 milliseconds.
+
+`nodebug` option can be used to prevent logging to syslog about faulty servers.
+
+# Tips and tricks
+
+Anything returned from remote server will be echoed back to client, so it's
+possible to send some message to user using **pam_eye**.
+
+## Example:
+
+Configure module as following:
+```
+auth    optional    pam_eye.so    localhost:12345 60000
+```
+
+Open two consoles.
+
+In the first console run `nc -vlp 12345`.
+
+In the second one run `sudo true`; command should hang for 60s.
+
+Return to `nc` console (you should see incoming request made by **pam_eye**).
+Type `I'm watching!`, hit `ENTER` and `CTRL-D`.
+
+`sudo` console should unhang now and you should see message you're typed as
+reply.
