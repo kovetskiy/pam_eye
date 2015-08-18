@@ -68,6 +68,13 @@ PAM_EXTERN int pam_sm_open_session(
 
     CURL *curl = curl_easy_init();
     if (!curl) {
+        if (debug) {
+            syslog(
+                LOG_ERR,
+                "[pam_eye] could not initialize curl (curl_easy_init failed)"
+            );
+        }
+
         return PAM_SUCCESS;
     }
 
