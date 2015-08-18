@@ -13,7 +13,7 @@
 #define UNUSED(x) (x)
 
 PAM_EXTERN int pam_sm_close_session(
-    pam_handle_t *pamh, int flags,int argc, const char **argv
+    pam_handle_t *pamh, int flags, int argc, const char **argv
 ) {
     UNUSED(pamh);
     UNUSED(flags);
@@ -24,7 +24,7 @@ PAM_EXTERN int pam_sm_close_session(
 }
 
 PAM_EXTERN int pam_sm_open_session(
-    pam_handle_t *pamh, int flags,int argc, const char **argv
+    pam_handle_t *pamh, int flags, int argc, const char **argv
 ) {
     UNUSED(pamh);
     UNUSED(flags);
@@ -73,7 +73,6 @@ PAM_EXTERN int pam_sm_open_session(
 
     curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_USERAGENT, USERAGENT);
-    curl_easy_setopt(curl, CURLOPT_RETURNTRANSFER, USERAGENT);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT_MS, timeout);
 
     CURLcode result;
