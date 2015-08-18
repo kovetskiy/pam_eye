@@ -21,10 +21,10 @@ $ makepkg -c
 
 - Add following lines to `/etc/pam.d/system-auth`:
 ```
-auth    optional    pam_eye.so    URL [TIMEOUT_MS [nodebug]]
+session    optional    pam_eye.so    URL [TIMEOUT_MS [nodebug]]
 ```
 
-Replace placeholder `URL` with your **pam_eye** gateway url (without http://).
+Replace placeholder `URL` with your **pam_eye** report server url.
 
 `TIMEOUT_MS` is the maximum amount of milliseconds which **pam_eye** could take.
 By default it's 200 milliseconds.
@@ -44,10 +44,10 @@ $ ./build.sh 1.0
 
 - Add following lines to `/etc/pam.d/common-auth`:
 ```
-auth    optional    pam_eye.so    URL [TIMEOUT [nodebug]]
+session    optional    pam_eye.so    URL [TIMEOUT [nodebug]]
 ```
 
-Replace placeholder `URL` with your **pam_eye** gateway url (without http://).
+Replace placeholder `URL` with your **pam_eye** report server url.
 
 `TIMEOUT_MS` is the maximum amount of milliseconds which **pam_eye** could take.
 By default it's 200 milliseconds.
@@ -63,7 +63,7 @@ possible to send some message to user using **pam_eye**.
 
 Configure module as following:
 ```
-auth    optional    pam_eye.so    localhost:12345 60000
+session    optional    pam_eye.so    localhost:12345 60000
 ```
 
 Open two consoles.
