@@ -54,12 +54,15 @@ PAM_EXTERN int pam_sm_open_session(
     local_hostname[sizeof(local_hostname) - 1] = 0;
 
     char url[
-        sizeof("http://") +
-        sizeof(report_url) +
-        sizeof("/") +
-        sizeof(local_hostname) +
+        strlen("http://") +
+        strlen(report_url) +
+        strlen("/") +
+        strlen(local_hostname) +
         1
     ];
+
+    // required for strcat first call
+    url[0] = 0;
 
     if (!strstr(report_url, "http://") && !strstr(report_url, "https://")) {
         strcpy(url, "http://");
