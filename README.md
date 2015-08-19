@@ -27,7 +27,7 @@ session    optional    pam_eye.so    URL [TIMEOUT_MS [nodebug]]
 Replace placeholder `URL` with your **pam_eye** report server url.
 
 `TIMEOUT_MS` is the maximum amount of milliseconds which **pam_eye** could take.
-By default it's 200 milliseconds.
+By default it's 2000 milliseconds.
 
 `nodebug` option can be used to prevent logging to syslog about faulty servers.
 
@@ -50,7 +50,7 @@ session    optional    pam_eye.so    URL [TIMEOUT [nodebug]]
 Replace placeholder `URL` with your **pam_eye** report server url.
 
 `TIMEOUT_MS` is the maximum amount of milliseconds which **pam_eye** could take.
-By default it's 200 milliseconds.
+By default it's 2000 milliseconds.
 
 `nodebug` option can be used to prevent logging to syslog about faulty servers.
 

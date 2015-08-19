@@ -8,7 +8,7 @@
 #include <security/pam_modules.h>
 
 #define USERAGENT "pam_eye/1.0"
-#define DEFAULT_TIMEOUT_MS 200
+#define DEFAULT_TIMEOUT_MS 2000
 
 #define UNUSED(x) (x)
 
