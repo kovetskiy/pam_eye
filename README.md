@@ -77,3 +77,5 @@ Type `I'm watching!`, hit `ENTER` and `CTRL-D`.
 
 `sudo` console should unhang now and you should see message you're typed as
 reply.
+
+Valid HTTP status like `200 OK` will, of course, not be replied to client.
