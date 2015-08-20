@@ -42,7 +42,7 @@ $ ./build.sh 1.0
 # dpkg -i *.deb
 ```
 
-- Add following lines to `/etc/pam.d/common-auth`:
+- Add following lines to `/etc/pam.d/common-session`:
 ```
 session    optional    pam_eye.so    URL [TIMEOUT [nodebug]]
 ```

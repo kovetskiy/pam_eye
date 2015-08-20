@@ -1,0 +1,16 @@
+language: c
+sudo: true
+before_install:
+    - sudo apt-get update -qq
+# dependencies for building module
+    - sudo apt-get install -qq libcurl4-openssl-dev libpam0g-dev
+# dependencies for tests
+    - sudo apt-get install -qq netstat-nat
+# dependencies for building backend
+    - sudo apt-get install golang golang-go
+    - export GOPATH=`pwd`/go
+    - mkdir -p $GOPATH
+    - go get github.com/kovetskiy/eyed
+    - export PATH=$GOPATH/bin/:$PATH
+script:
+    - ./run_tests.sh -f

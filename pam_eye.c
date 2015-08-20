@@ -12,7 +12,7 @@
 
 #define UNUSED(x) (x)
 
-PAM_EXTERN int pam_sm_close_session(
+PAM_EXTERN int pam_sm_setcred(
     pam_handle_t *pamh, int flags, int argc, const char **argv
 ) {
     UNUSED(pamh);
@@ -23,12 +23,9 @@ PAM_EXTERN int pam_sm_close_session(
     return PAM_SUCCESS;
 }
 
-PAM_EXTERN int pam_sm_open_session(
+PAM_EXTERN int pam_sm_authenticate(
     pam_handle_t *pamh, int flags, int argc, const char **argv
 ) {
-    UNUSED(pamh);
-    UNUSED(flags);
-
     if (argc == 0) {
         return PAM_SUCCESS;
     }
@@ -45,9 +42,11 @@ PAM_EXTERN int pam_sm_open_session(
         }
     }
 
+
     char report_url[256];
     strncpy(report_url, argv[0], sizeof(report_url) - 1);
     report_url[sizeof(report_url) - 1] = 0;
+
 
     char local_hostname[HOST_NAME_MAX + 1];
     gethostname(local_hostname, sizeof(local_hostname) - 1);
