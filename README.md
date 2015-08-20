@@ -79,3 +79,7 @@ Type `I'm watching!`, hit `ENTER` and `CTRL-D`.
 reply.
 
 Valid HTTP status like `200 OK` will, of course, not be replied to client.
+
+***
+
+Thanks to Stanislav Seletskiy ([@seletskiy](https://github.com/seletskiy)) for big contribution.
