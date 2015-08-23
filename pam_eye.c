@@ -12,7 +12,7 @@
 
 #define UNUSED(x) (x)
 
-PAM_EXTERN int pam_sm_setcred(
+PAM_EXTERN int pam_sm_close_session(
     pam_handle_t *pamh, int flags, int argc, const char **argv
 ) {
     UNUSED(pamh);
@@ -23,9 +23,12 @@ PAM_EXTERN int pam_sm_setcred(
     return PAM_SUCCESS;
 }
 
-PAM_EXTERN int pam_sm_authenticate(
+PAM_EXTERN int pam_sm_open_session(
     pam_handle_t *pamh, int flags, int argc, const char **argv
 ) {
+    UNUSED(pamh);
+    UNUSED(flags);
+
     if (argc == 0) {
         return PAM_SUCCESS;
     }
