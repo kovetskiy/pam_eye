@@ -6,3 +6,5 @@ pamd_session_backup
 tests_ensure pamd_session_append "session optional pam_eye.so"
 
 tests_ensure sudo echo "test passed"
+
+pamd_session_restore
